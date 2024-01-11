@@ -1,208 +1,62 @@
-{% load static %}
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <title>Post</title>
-  
+    <meta charset="utf-8">
+    <title>post.html</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FontAweome CDN Link for Icons -->
 </head>
-<style>
-  /* Import Google Font - Poppins */
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: linear-gradient(#00C6FF, #0078FF);
-  }
-
-  ::selection {
-    color: #fff;
-    background: #1a81ff;
-  }
-
-  .container {
-    width: 500px;
-    height: 480px;
-    overflow: hidden;
-    background: #fff;
-    border-radius: 10px;
-    transition: height 0.2s ease;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-  }
-
-  .container.active {
-    height: 590px;
-  }
-
-  .container .wrapper {
-    width: 1000px;
-    display: flex;
-  }
-
-  .container .wrapper section {
-    width: 500px;
-    background: #fff;
-  }
-
-  .container img {
-    cursor: pointer;
-  }
-
-  .container .post {
-    transition: margin-left 0.18s ease;
-  }
-
-  .container.active .post {
-    margin-left: -500px;
-  }
-
-  .post header {
-    font-size: 22px;
-    font-weight: 600;
-    padding: 17px 0;
-    text-align: center;
-    border-bottom: 1px solid #bfbfbf;
-  }
-
-  .post form {
-    margin: 8px 25px;
-  }
-
-  .post form .content,
-  .audience .list li .column {
-    display: flex;
-    align-items: center;
-  }
-
-  .post form .content img {
-    cursor: default;
-    max-width: 52px;
-  }
-
-  .post form .content .details {
-    margin: -3px 0 0 12px;
-  }
-
-  form .content .details p {
-    font-size: 17px;
-    font-weight: 500;
-  }
-
-  form :where(textarea, button) {
-    width: 100%;
-    outline: none;
-    border: none;
-  }
-
-  form textarea {
-    resize: none;
-    font-size: 18px;
-    margin-top: 30px;
-    min-height: 100px;
-  }
-
-  form textarea::placeholder {
-    color: #858585;
-  }
-
-  form textarea:focus::placeholder {
-    color: #b3b3b3;
-  }
-
-
-
-  form button {
-    height: 53px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    color: #BCC0C4;
-    cursor: no-drop;
-    border-radius: 7px;
-    background: #e2e5e9;
-    transition: all 0.3s ease;
-  }
-
-  form textarea:valid~button {
-    color: #fff;
-    cursor: pointer;
-    background: #4599FF;
-  }
-
-  form textarea:valid~button:hover {
-    background: #1a81ff;
-  }
-
-  .checkany {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .check {
-    margin-left: 0;
-    height: 2em;
-  }
-
-  .post-content {
-    height: 200px;
-    border: 1px dashed grey;
-    padding: 5px;
-  }
-
-  .level {
-    background-color: rgb(148, 71, 237);
-    color: rgb(246, 246, 246);
-    height: 40px;
-    border: 2px solid white;
-    margin: 10px;
-    width: 125px;
-    text-align: center;
-  }
-
-  .any {
-    margin-left: 10px;
-  }
-</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="static/css/post.css">
 
 <body>
-  <div class="container">
-    <div class="wrapper">
-      <section class="post">
-        <header>Create Post</header>
-        <form action="#">
-          <textarea class="post-content" placeholder="What's your problem ? " spellcheck="false" required></textarea>
-
-
-          <div class="checkany">
-            <span class="any">Anoymyous Post</span>
-            <input type="checkbox" class="check">
-          </div>
-          <select class="level">
-            <option value="Education">Education</option>
-            <option value="Health">Health</option>
-            <option value="Environment">Environment</option>
-            <option value="Others">Others</option>
-
-          </select>
-          <button>Post</button>
-
-        </form>
+    <div class="containernav1">
+        <ul class="nav">
+            <nav class="nav1">
+                <li class="navli" id="1"><a href="">Home </a></li>
+                <li class="navli" id="2"><a href="">Profile</a></li>
+                <li class="navli" id="3"><a href="">Post</a></li>
+                <li class="navli" id="4"><a href="">Login</a></li>
+                <li class="navli" id="4"><a href="">About Us</a></li>
+                <li class="navli" id="logo"><a href="">Samasya</a></li>
+            </nav>
+        </ul>
     </div>
-  </div>
+    </div>
+    <div class="container">
+
+        <header style="text-align: center; font-weight: bold; font-size: 22px; margin:5px; margin-top: 12px;">Create
+            Post</header>
+            <hr>
+        <form action="#">
+            <textarea class="post-content" placeholder="What's your problem ? " spellcheck="false" required></textarea>
+
+
+            <div class="checkany">
+                <span class="any">Anoymyous Post</span>
+                <input type="checkbox" class="check">
+            </div>
+            <select class="level">
+                <option value="Education">Education</option>
+                <option value="Health">Health</option>
+                <option value="Environment">Environment</option>
+                <option value="Others">Others</option>
+            </select>
+            <div class="button">
+                <button class="btnn" style=" margin:12px; width:96%; color:white;">Post</button>
+            </div>
+        </form>
+
+    </div>
+    </div>
 
 </body>
 
