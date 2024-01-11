@@ -1,0 +1,101 @@
+.checkany {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .check {
+    margin-left: 0;
+    height: 2em;
+  }
+
+  .post-content {
+    width:96%;
+    height: 200px;
+    border: 1px dashed grey;
+    padding: 5px;
+  }
+
+  .level {
+    background-color: rgb(148, 71, 237);
+    color: rgb(246, 246, 246);
+    height: 40px;
+    border: 2px solid white;
+    margin: 10px;
+    width: 125px;
+    text-align: center;
+  }
+  
+  .any {
+    margin-left: 10px;
+  }
+ 
+
+  form textarea {
+    resize: none;
+    font-size: 18px;
+    margin-top: 30px;
+    min-height: 100px;
+  }
+
+  form textarea::placeholder {
+    color: #858585;
+  }
+
+  form textarea:focus::placeholder {
+    color: #6d6d6d;
+  }
+  .post form {
+    margin: 8px 25px;
+  }
+  .post header {
+    font-size: 22px;
+    font-weight: 600;
+    padding: 17px 0;
+    text-align: center;
+    border-bottom: 1px solid #ffffff;
+  }
+  .container .post {
+    transition: margin-left 0.18s ease;
+  }
+
+  
+  .container {
+    width: 500px;
+    height: 480px;
+    margin-top:12px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 10px;
+    transition: height 0.2s ease;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  }
+ 
+  .btnn:hover{
+    background-color: #1980ff;
+  }
+
+ .btnn{
+    height: 53px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #BCC0C4;
+    cursor: no-drop;
+    border-radius: 7px;
+    background-color: #1f74dc;
+   
+    transition: all 0.3s ease;
+  }
+
+/*
+  form textarea:valid~.btnn {
+    color: #fff;
+    cursor: pointer;
+    background: #4599FF;
+  }
+
+  form textarea:valid~.btnn:hover {
+    background: #1a81ff;
+  }*/
