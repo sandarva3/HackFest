@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Josefin+Sans&display=swap');
+body{
+    font-family:'Josefin Sans', sans-serif;
+    margin:0;
+    padding:0;
+}
+.formwrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #222;
+}
+.formwrapper form{
+    width: 360px;
+    border: 1px solid rgba(255,255,255, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 5px;
+    max-width: 90%;
+    padding: 40px;
+}
+.input_group{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    position: relative;
+    color: #fff;
+    
+}
+
+.input_group input,.input_group textarea {
+    border: 1px solid;
+    border-radius: 5px;
+    box-shadow:3px 3px rgba(0, 0, 0 ,1),
+                 -1px -1px 10px rgba(255, 255, 255, .4);
+    background: transparent;
+    outline:none;
+    padding:12px;
+    border-radius: 8px;
+}
+.input_group textarea{
+    height: 100px;
+    resize: none;
+    overflow-y: auto;
+}
+.input_group label{
+    position: absolute;
+    top: 12px;
+    left: 8px;
+    pointer-events: none;
+}
+
