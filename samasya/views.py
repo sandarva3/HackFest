@@ -5,7 +5,7 @@ def home_view(request):
 
 
 def about_view(request):
-    return render(request, 'about-us.html')
+    return render(request, 'aboutus.html')
 
 
 def login_view(request):
