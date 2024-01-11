@@ -9,16 +9,16 @@ def about_view(request):
 
 
 def login_view(request):
-    return HttpResponse("Login Page")
+    return render(request, 'login.html')
 
 
 def register_view(request):
-    return HttpResponse("Register Page")
+    return render(request, 'register.html')
 
 
 def post_view(request):
-    return HttpResponse("Post Page")
+    return render(request, 'post.html')
 
 
-def trending_view(request):
-    return HttpResponse("Trending Page")
+def profile_view(request):
+    return render(request, 'profile.html')

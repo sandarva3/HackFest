@@ -17,12 +17,11 @@
     <div class="containernav1">
         <ul class="nav">
             <nav class="nav1">
-                <li class="navli" id="1"><a href="index.html">Home </a></li>
-                <li class="navli" id="2"><a href="trending.html">Trending</a></li>
-                <li class="navli" id="3"><a href="post.html">Post</a></li>
-                <li class="navli" id="4"><a href="login.html">Login</a></li>
-                <li class="navli" id="4"><a href="aboutus.html">About Us</a></li>
-                <li class="navli" id="logo"><a href="">Samasya</a></li>
+                <li class="navli" id="1"><a href="{% url 'home' %}">Home </a></li>
+                <li class="navli" id="3"><a href="{% url 'post' %}">Post</a></li>
+                <li class="navli" id="4"><a href="{% url 'login' %}">Login</a></li>
+                <li class="navli" id="4"><a href="{% url 'about' %}">About Us</a></li>
+                <li class="navli" id="logo"><a href="{% url 'home' %}">Samasya</a></li>
             </nav>
         </ul>
     </div>

@@ -16,7 +16,7 @@ class CustomUserCreationForm(UserCreationForm):
         return email
     
     def clean_phone(self):
-        email = self.cleaned_data["phone"]
+        phone = self.cleaned_data["phone"]
         if Customer.objects.filter(phone = phone).exists():
             raise forms.ValidationError("That Phone number already Exists, Please provide different Email address")
         return phone
@@ -27,4 +27,5 @@ class CustomUserCreationForm(UserCreationForm):
         user.phone = self.cleaned_data["phone"]
         if commit:
             user.save()
+            customer = Customer.objects.create(user=user, phone=self.cleaned_data["email"])
         return user
