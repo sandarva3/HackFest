@@ -1,74 +1,97 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock stylesheet %}
+
+
+{% block javascript %}
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock javascript %}
+
 {% block content %}
 
-<div class="allpost">
-    <div class="homesec grey">
-    </div>
+
+    {% for post in posts %}
     
-    <div class="homesec mp">
-        <div class="pc">
-            <div class="post-box">
-              <div class="profile">
-                  <img src="https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg" alt="Profile Image"> 
-                  <div style="color: rgb(229, 229, 229);" class="username">Username</div>
-              </div>
-              <div class="user-details">
-                  
-                  <div class="category">Category: </div>
-              </div>
-              <div class="post-content">
-                  <p>User post goes here. It can be a detailed description of the problem.</p>
-              </div>
-              <button class="upvote-btn">Upvote &#8593;</button>
-              <input type="text" style="margin:4px" class="comment-input" id="cmtt" placeholder="Add a comment..." onclick="clicked()">
-          </div> 
-              <div class="comment-section" style="height :auto; padding:7px; width: auto;" id="cmt" hidden>
-                  
-                  <div class="comment-header">
-                      Comments
-        
-                      <button class="btnn" style="height :auto; color:rgb(255, 255, 255); padding:7px; width: auto;" onclick="back()">
-                          Back
-                          </button>
-                  </div>
-                  <div class="comments">
-                      <div class="comment-box">
-                          <div class="comment-username">Commenter1</div>
-                          <div class="comment-content">This is a great comment! Keep up the good work.</div>
-                      
-                          <button class="upvote-btn">Upvote &#8593;</button>  </div>
-                      <div class="comment-box">
-                          <div class="comment-username">Commenter2</div>
-                          <div class="comment-content">I agree! The comment section looks fantastic.</div>
-                          <button class="upvote-btn">Upvote &#8593;</button>
-                        </div>
-                        <div class="comment-box">
-                            <div class="comment-username">Commenter2</div>
-                            <div class="comment-content">I agree! The comment section looks fantastic.</div>
-                            <button class="upvote-btn">Upvote &#8593;</button>
-                          </div>
-                          <div class="comment-box">
-                            <div class="comment-username">Commenter2</div>
-                            <div class="comment-content">I agree! The comment section looks fantastic.</div>
-                            <button class="upvote-btn">Upvote &#8593;</button>
-                          </div>
-                  </div>
-                  <div class="new-comment">
-                      <input type="text" class="comment-input" placeholder="Add a comment...">
-                      <button class="submit-btn">Submit</button>
-                  </div>
-              </div>
+    <div class="pc">
+        <div class="post-box">
+            <div class="profile">
+
+                <img src="https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg"
+                    alt="Profile Image">
+
+                <div style="color: rgb(229, 229, 229);" class="username">{{post.user.username}}</div>
+            </div>
+            <div class="user-details">
+
+                <div class="category">Category: {{post.category}}</div>
+            </div>
+            <div class="post-content">
+                <p>{{post.text}}</p>
+            </div>
+            <button class="upvote-btn">Upvote &#8593; {{post.upvotes}}</button>
+            <input type="text" style="margin:4px" class="comment-input" id="cmtt" placeholder="Add a comment..."
+                onclick="clicked()">
         </div>
-    </div>
-    <div class="homesec grey">
-    
-    
-    </div>
-    </div>
-    </div>
-    
-      
-    
+
+        <div class="comment-section" style="height :auto; padding:7px; width: auto;" id="cmt" hidden>
+
+            <div class="comment-header">
+                Comments<button class="btnn"
+                    style="height :auto; color:rgb(255, 255, 255); padding:7px; width: auto;" onclick="back()">
 
 
-{% endblock content %}
+                    <button class="btnn"
+                        style="height :auto; cursor: pointer; color:rgb(255, 255, 255); padding:7px; width: auto;"
+                        onclick="back()">
+                        Back
+                    </button>
+            </div>
+            <div class="comments">
+                <div class="comment-box">
+                    <div class="comment-username">Commenter1</div>
+                    <div class="comment-content">This is a great comment! Keep up the good work.</div>
+
+                    <button class="upvote-btn">Upvote &#8593;</button>
+                </div> <div class="comment-box">
+                    <div class="comment-username">Commenter2</div>
+                    <div class="comment-content">I agree! The comment section looks fantastic.</div>
+                    <button class="upvote-btn">Upvote &#8593;</button>
+            </div>
+            <div class="comment-box">
+                <div class="comment-username">Commenter2</div>
+                <div class="comment-content">I agree! The comment section looks fantastic.</div>
+                <button class="upvote-btn">Upvote &#8593;</button>
+            </div>
+            <div class="comment-box">
+                <div class="comment-username">Commenter2</div>
+                <div class="comment-content">I agree! The comment section looks fantastic.</div>
+                <button class="upvote-btn">Upvote &#8593;</button>
+            </div>
+        </div>
+        <div class="new-comment">
+            <input type="text" class="comment-input" placeholder="Add a comment...">
+            <button class="submit-btn">Submit</button>
+        </div>
+        {% empty %}
+        <p>No Posts to Display</p>
+        {% endfor %}
+    </div>
+    </div>
+
+    <div class="comment-box">
+        <div class="comment-username">Commenter2</div>
+        <div class="comment-content">I agree! The comment section looks fantastic.</div>
+        <button class="upvote-btn">Upvote &#8593;</button>
+    </div>
+
+
+    </div>
+    <div class="new-comment">
+        <input type="text" class="comment-input" placeholder="Add a comment...">
+        <button class="submit-btn">Submit</button>
+    </div>
+
+    {% endblock content %}

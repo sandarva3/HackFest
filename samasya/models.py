@@ -5,6 +5,10 @@ class Customer(models.Model):
     user = models.OneToOneField(User, null=False, blank=False, on_delete=models.CASCADE)
     phone = models.CharField(max_length = 10, unique=True, null=False, blank = False)
     email = models.EmailField(max_length = 35, unique = True, null=True, blank=True)
+    ward = models.IntegerField(default=0, null=True)
+    city = models.CharField(max_length = 45, null=True)
+    district = models.CharField(max_length = 35, null=True)
+    province = models.CharField(max_length =15, null=True)
 
     def __str__(self):
         return self.user.username if self.user else None

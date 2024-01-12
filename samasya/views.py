@@ -12,7 +12,7 @@ def home_view(request):
         posts = Post.objects.all().order_by('-created_at')
         return render(request, 'home.html', {'posts':posts})
     
-    return render(request, 'home.html')
+    return render(request, 'notloginhome.html')
 
 
 def about_view(request):
