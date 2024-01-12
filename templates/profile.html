@@ -85,7 +85,7 @@ Profile
     <main>
       <div class="user-info">
         {% if request.user.is_authenticated %}
-        <h2>{{user.fullname}}</h2>
+        <h2>{{user.username}}</h2>
         <p>User Name: <span class="username">{{user.username}}</span></p>
         <p>Phone Number:<span class="phonenumber">{{user.phone}}</span> </p>
           <p>Email: <span class="email">{{user.email}}</span> </p>

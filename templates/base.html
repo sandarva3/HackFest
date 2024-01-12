@@ -26,7 +26,7 @@
           
             <ul class="nav" id="nav3">
                 {% if request.user.is_authenticated %}
-                <li class="navli" id="2"><a href="{% url 'profile' %}">{{user.username}}</a></li>
+                <li class="navli" id="2"><a href="{% url 'profile' %}">About Me</a></li>
                 {% else %}
                 <li class="navli" id="2"><a href="{% url 'profile' %}">Profile</a></li>
                 {% endif %}

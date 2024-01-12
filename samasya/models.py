@@ -11,3 +11,29 @@ class Customer(models.Model):
 
     def username(self):
         return self.user.username if self.user else None
+
+
+class Post(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'posts')
+    text = models.TextField()
+    level = models.CharField(max_length = 250)
+    category = models.CharField(max_length = 300)
+    upvotes = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return f"{self.text[:100]}..."
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE, related_name='comments')
+    post = models.ForeignKey(Post, on_delete = models.CASCADE, related_name='posts')
+    text = models.TextField()
+    upvotes = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return f'{self.text[:50]}...'
+
+
+
