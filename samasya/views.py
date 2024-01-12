@@ -3,12 +3,15 @@ from django.http import HttpResponse
 from .forms import CustomUserCreationForm, PostForm
 from django.contrib import auth
 from django.contrib.auth import login, logout
-from .models import Customer, User
-
-
+from .models import Customer, User, Post, Comment
+from django.contrib.auth.decorators import login_required
 
 
 def home_view(request):
+    if request.user.is_authenticated:
+        posts = Post.objects.all().order_by('-created_at')
+        return render(request, 'home.html', {'posts':posts})
+    
     return render(request, 'home.html')
 
 

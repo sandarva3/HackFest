@@ -187,10 +187,11 @@
     border-color: #007BFF;
 }
 .pc{
+  max-width: fit-content;
   display: flex;
-  padding: 0px;
 justify-content: center;
   align-items: center;
+  width: auto;
 }
 
 .comment-section {
