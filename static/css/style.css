@@ -166,6 +166,7 @@ body {
   background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
 }
 
+<<<<<<< HEAD
 .gradient-custom-3 {
   /* fallback for old browsers */
   background: #84fab0;
@@ -211,3 +212,59 @@ body {
   width: 40%;
   transition: all 0.3s ease;
 }
+=======
+ .btnn{
+    height: 53px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #BCC0C4;
+    cursor: no-drop;
+    border-radius: 7px;
+    background-color: #1f74dc;
+   width:40%;
+    transition: all 0.3s ease;
+  }
+.sec{
+  margin-top:9px;
+  padding:0px;
+  display:flex;
+  justify-content:space-between;
+
+}
+.leval{
+  padding:0px;
+  display:flex;
+  justify-content:left;
+
+}
+.are{
+  list-style-type: none;
+padding-left: 20px;
+font-size: large;
+}
+.are:hover{
+  color:blue;
+  cursor: pointer;
+}
+.area{
+list-style-type: none;
+padding-left: 20px;
+font-size: large;
+}
+.area:hover{
+  color:blue;
+  cursor: pointer;
+}
+.pl{
+  padding:8px;
+  border-radius: 15px 0px;
+  border: 0.3px dotted rgb(30, 68, 68);
+}
+.pl:hover{
+  border-radius: 0px 15px;
+  background-color: #ffffff;
+  color: rgb(5, 56, 128);
+}
+>>>>>>> ac11f5f1c81942025aadc7c2b8ccc0a110888fc0
