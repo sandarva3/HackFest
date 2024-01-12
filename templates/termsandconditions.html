@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samasya App - Terms and Conditions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        ol {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button.decline {
+            background-color: #d9534f;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Terms and Conditions</h1>
+
+        <p>The "Samasya" app allows users to post community problems related to social, political, economic, and environmental issues in Nepal. Users can upvote or downvote posts to bring attention to the most pressing issues at the Ward, Metro, and National levels.</p>
+
+        <p>By using this app, you agree to the following terms and conditions:</p>
+
+        <ol>
+            <li>Users must provide accurate information, including name, phone, email, and address when posting a problem.</li>
+            <li>Posts should be focused on community problems that require attention from government authorities and people in power.</li>
+            <li>Users can switch between Ward, Metro, and National levels to address problems at the relevant government level.</li>
+            <li>The app aims to raise awareness and pressure authorities to act on identified issues in Nepal.</li>
+        </ol>
+
+        <p>By using the "Samasya" app, you agree to comply with these terms and conditions. Failure to comply may result in account suspension or termination.</p>
+
+        <div>
+            <button onclick="acceptTerms()">Accept</button>
+            <button class="decline" onclick="declineTerms()">Decline</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Samasya App. All rights reserved.</p>
+    </div>
+
+    <script>
+        function acceptTerms() {
+            // Add your logic here for handling the acceptance of terms
+            alert("Terms accepted!");
+        }
+
+        function declineTerms() {
+            // Add your logic here for handling the declination of terms
+            alert("Terms declined!");
+        }
+    </script>
+
+</body>
+</html>
