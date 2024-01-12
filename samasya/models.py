@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 class Customer(models.Model):
     user = models.OneToOneField(User, null=False, blank=False, on_delete=models.CASCADE)
     phone = models.CharField(max_length = 10, unique=True, null=False, blank = False)
-    name = models.CharField(max_length=45, null=True)
     email = models.EmailField(max_length = 35, unique = True, null=True, blank=True)
 
     def __str__(self):
