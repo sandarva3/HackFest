@@ -303,3 +303,6 @@ cursor: pointer;
 .qoute:hover{
   font-size:30px;
 }
+.upvote-btn:hover{
+    background-color:rgb(26, 134, 26)
+}
