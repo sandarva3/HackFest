@@ -191,14 +191,20 @@
   padding: 0px;
 justify-content: center;
   align-items: center;
+  align-content: center;
 }
-
+.hh{
+  justify-content: center;
+  align-items: center;
+}
 .comment-section {
-  max-width: 500px;
+  max-width: 400px;
+  justify-content: center;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   overflow: hidden;
+  margin:22px;
 }
 
 .comment-header {
