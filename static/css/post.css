@@ -1,11 +1,12 @@
 .checkany {
     display: flex;
-    justify-content: space-between;
+ 
+ justify-content: space-between;
     flex-wrap: wrap;
   }
 
   .check {
-    margin-left: 0;
+    margin-right: 18px;
     height: 2em;
   }
 
@@ -205,13 +206,19 @@ justify-content: center;
   color: #fff;
   padding: 15px;
   display: flex;
-height:2em;
+
   justify-content: space-between;
   text-align: center;
   font-size: 1.5em;
+  border-radius: 2px 0px 4px;
   border-bottom: 2px solid #0056b3;
 }
-
+#cmtt:hover{
+cursor: pointer;
+}
+#cmt:hover{
+  cursor: pointer;
+  }
 .comments {
   padding: 15px;
   max-height: 300px;
@@ -277,4 +284,16 @@ height:2em;
 
 .submit-btn:hover {
   background-color: #0056b3;
+}
+.qoute{
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  font-size:25px;
+  margin:12px;
+  background-color: #858585;
+  transition: ease-in 0.7s;
+}
+.qoute:hover{
+  font-size:30px;
 }
