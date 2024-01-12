@@ -18,10 +18,10 @@
   }
 
   .level {
-    background-color: rgb(148, 71, 237);
-    color: rgb(246, 246, 246);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     height: 40px;
-    border: 2px solid white;
+    border: 2px solid black;
     margin: 10px;
     width: 125px;
     text-align: center;
