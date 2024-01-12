@@ -95,7 +95,7 @@
     color: #fff;
     cursor: pointer;
     background: #4599FF;
-  }
+  } 
 
   form textarea:valid~.btnn:hover {
     background: #1a81ff;
@@ -157,6 +157,7 @@
 }
 
 .post-content {
+  max-width:80%;
     padding: 0 15px 15px;
     font-size: 1.1em;
     line-height: 1.4;
@@ -187,23 +188,29 @@
     border-color: #007BFF;
 }
 .pc{
-  max-width: fit-content;
-  display: flex;
+  padding: 0px;
 justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-  width: auto;
-=======
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
   align-content: center;
 }
 .hh{
   justify-content: center;
   align-items: center;
->>>>>>> 8eab55eaa5ede5a4ceed43de8db3893c4b1961c2
 }
 .comment-section {
   max-width: 400px;
   justify-content: center;
+  width: 100%;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
@@ -212,8 +219,8 @@ justify-content: center;
 }
 
 .comment-header {
-  background-color: #007BFF;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
   padding: 15px;
   display: flex;
 
@@ -306,7 +313,4 @@ cursor: pointer;
 }
 .qoute:hover{
   font-size:30px;
-}
-.upvote-btn:hover{
-    background-color:rgb(26, 134, 26)
 }
