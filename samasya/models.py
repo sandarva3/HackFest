@@ -14,10 +14,21 @@ class Customer(models.Model):
 
 
 class Post(models.Model):
+    LEVEL_CHOICES = [
+        ('national', 'National'),
+        ('municipality', 'Municipality'),
+        ('ward', 'Ward'),
+    ]
+    CATEGORY_CHOICES = [
+        ('education', 'Education'),
+        ('health', 'Health'),
+        ('environment', 'Environment'),
+        ('others', 'Others'),
+    ]
     user = models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'posts')
     text = models.TextField()
-    level = models.CharField(max_length = 250)
-    category = models.CharField(max_length = 300)
+    level = models.CharField(max_length = 250, choices= LEVEL_CHOICES)
+    category = models.CharField(max_length = 300, choices = CATEGORY_CHOICES)
     upvotes = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add = True)
 
