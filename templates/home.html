@@ -14,7 +14,7 @@
 
 
     {% for post in posts %}
-    
+
     <div class="pc">
         <div class="post-box">
             <div class="profile">
@@ -35,63 +35,38 @@
             <input type="text" style="margin:4px" class="comment-input" id="cmtt" placeholder="Add a comment..."
                 onclick="clicked()">
         </div>
-
-        <div class="comment-section" style="height :auto; padding:7px; width: auto;" id="cmt" hidden>
-
+        <div class="comment-section" style="height:min-content; padding:0px; width: auto;" id="cmt" hidden>
+            
             <div class="comment-header">
                 Comments<button class="btnn"
-                    style="height :auto; color:rgb(255, 255, 255); padding:7px; width: auto;" onclick="back()">
-
-
-                    <button class="btnn"
-                        style="height :auto; cursor: pointer; color:rgb(255, 255, 255); padding:7px; width: auto;"
-                        onclick="back()">
-                        Back
-                    </button>
-            </div>
-            <div class="comments">
-                <div class="comment-box">
-                    <div class="comment-username">Commenter1</div>
-                    <div class="comment-content">This is a great comment! Keep up the good work.</div>
-
-                    <button class="upvote-btn">Upvote &#8593;</button>
-                </div> <div class="comment-box">
-                    <div class="comment-username">Commenter2</div>
-                    <div class="comment-content">I agree! The comment section looks fantastic.</div>
-                    <button class="upvote-btn">Upvote &#8593;</button>
-            </div>
+                style="height :auto; color:rgb(255, 255, 255); padding:7px; width: auto;" onclick="back()">
+                
+                
+                <button class="btnn"
+                style="height :auto; cursor: pointer; color:rgb(255, 255, 255); padding:2px; width: min-content;"
+                onclick="back()">
+                Back
+            </button>
+        </div>
+        {% for comment in comments %}
+        <form method="post">
+            {% csrf_token %}
+        <div class="comments">
             <div class="comment-box">
-                <div class="comment-username">Commenter2</div>
-                <div class="comment-content">I agree! The comment section looks fantastic.</div>
-                <button class="upvote-btn">Upvote &#8593;</button>
+                <div class="comment-username">{{comment.user.username}}</div>
+                <div class="comment-content">{{comment.text}}</div>
+                <button class="upvote-btn">Upvote &#8593; {{comment.upvotes}}</button>
             </div>
-            <div class="comment-box">
-                <div class="comment-username">Commenter2</div>
-                <div class="comment-content">I agree! The comment section looks fantastic.</div>
-                <button class="upvote-btn">Upvote &#8593;</button>
+            <div class="new-comment">
+                <input type="text" style="margin:4px" class="comment-input" id="cmtt" placeholder="Add a comment..."
+                onclick="clicked()">
+                <button type="submit" class="submit-btn">Submit</button>
             </div>
         </div>
-        <div class="new-comment">
-            <input type="text" class="comment-input" placeholder="Add a comment...">
-            <button class="submit-btn">Submit</button>
-        </div>
+        </form>
+        {% endfor %}
+
         {% empty %}
         <p>No Posts to Display</p>
         {% endfor %}
-    </div>
-    </div>
-
-    <div class="comment-box">
-        <div class="comment-username">Commenter2</div>
-        <div class="comment-content">I agree! The comment section looks fantastic.</div>
-        <button class="upvote-btn">Upvote &#8593;</button>
-    </div>
-
-
-    </div>
-    <div class="new-comment">
-        <input type="text" class="comment-input" placeholder="Add a comment...">
-        <button class="submit-btn">Submit</button>
-    </div>
-
     {% endblock content %}

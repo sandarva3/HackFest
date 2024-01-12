@@ -10,7 +10,12 @@ from django.contrib.auth.decorators import login_required
 def home_view(request):
     if request.user.is_authenticated:
         posts = Post.objects.all().order_by('-created_at')
-        return render(request, 'home.html', {'posts':posts})
+        comments = Comment.objects.all().order_by('-created_at')
+        context = {
+            'posts':posts,
+            'comments':comments,
+            }
+        return render(request, 'home.html', context)
     
     return render(request, 'notloginhome.html')
 
