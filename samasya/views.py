@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import CustomUserCreationForm
-from django.contrib.auth import authenticate, login
-from .models import Customer
+from django.contrib.auth import login
+from .models import Customer, User
+
 
 
 
@@ -19,29 +20,21 @@ def login_view(request):
 
 
 def register_view(request):
-    if request.method == "POST":
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            username = form.cleaned_data.get('username')
-            phone = form.cleaned_data.get('phone')
-            password = form.cleaned_data.get('password1')
-            user = form.save(commit=True)
-            user = authenticate(username = username, password = password)
-            if user is not None:
-                login(request, user)
-                phone = form.cleaned_data.get('phone')
-                Customer.objects.create(user=user, phone=phone)
-                return redirect('home')
-
+    user = request.user
+    if user.is_authenticated:
+        return redirect('home')
     else:
-        form = CustomUserCreationForm()
+        if request.method == "POST":
+            form = CustomUserCreationForm(request.POST)
+            if form.is_valid():
+                user = form.save()
+                login(request,user)
+                return redirect('home')
+            return render(request, 'register.html', {'form':form})
 
-    context = {
-        'form': form
-    }
-
-    return render(request, 'register.html', context)
+        else:
+            form = CustomUserCreationForm()
+            return render(request, 'register.html', {'form': form})
     
 
 
