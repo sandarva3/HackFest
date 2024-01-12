@@ -6,7 +6,7 @@ class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(max_length= 35,required=True)
     phone = forms.CharField(max_length= 10, required=True)
     class Meta:
-        model = user
+        model = User
         fields = ("username", "email", "phone", "password1", "password2")
 
     def clean_email(self):
