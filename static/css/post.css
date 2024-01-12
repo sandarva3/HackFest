@@ -191,15 +191,24 @@
   display: flex;
 justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   width: auto;
+=======
+  align-content: center;
 }
-
+.hh{
+  justify-content: center;
+  align-items: center;
+>>>>>>> 8eab55eaa5ede5a4ceed43de8db3893c4b1961c2
+}
 .comment-section {
-  max-width: 500px;
+  max-width: 400px;
+  justify-content: center;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   overflow: hidden;
+  margin:22px;
 }
 
 .comment-header {
@@ -297,4 +306,7 @@ cursor: pointer;
 }
 .qoute:hover{
   font-size:30px;
+}
+.upvote-btn:hover{
+    background-color:rgb(26, 134, 26)
 }

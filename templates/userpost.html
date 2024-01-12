@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "base.html" %}
 
 {% load static %}
@@ -14,6 +15,16 @@
 
 
 {% for post in posts %}
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="static/css/post.css">
+
+<script src="static/js/script.js"></script>
+<div class="hh">
+>>>>>>> 8eab55eaa5ede5a4ceed43de8db3893c4b1961c2
 <div class="pc">
     <div class="post-box">
         <div class="profile">
@@ -37,8 +48,13 @@
           
           <div class="comment-header">
               Comments
+<<<<<<< HEAD
               
               <button class="btnn" style="height :auto; color:rgb(255, 255, 255); padding:7px; width: auto;" onclick="back()">
+=======
+
+              <button class="btnn" style="height :auto; cursor: pointer; color:rgb(255, 255, 255); padding:7px; width: auto;" onclick="back()">
+>>>>>>> 8eab55eaa5ede5a4ceed43de8db3893c4b1961c2
                   Back
                   </button>
           </div>
@@ -48,6 +64,7 @@
                   <div class="comment-content">This is a great comment! Keep up the good work.</div>
                   
                   <button class="upvote-btn">Upvote &#8593;</button>  </div>
+<<<<<<< HEAD
                   <div class="comment-box">
                       <div class="comment-username">Commenter2</div>
                       <div class="comment-content">I agree! The comment section looks fantastic.</div>
@@ -74,5 +91,23 @@
             </div>
         </div>
 
+=======
+              <div class="comment-box">
+                  <div class="comment-username">Commenter2</div>
+                  <div class="comment-content">I agree! The comment section looks fantastic.</div>
+                  <button class="upvote-btn">Upvote &#8593;</button>
+                </div>
+        
+               
+          </div>
+          <div class="new-comment">
+              <input type="text" class="comment-input" placeholder="Add a comment...">
+              <button class="submit-btn">Submit</button>
+          </div>
+      </div>
+</div>
+</div>
+</body>
+>>>>>>> 8eab55eaa5ede5a4ceed43de8db3893c4b1961c2
 
 {% endblock content %}
