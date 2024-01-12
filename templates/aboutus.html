@@ -1,62 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="static/css/style.css">
-    <style>
-        /* Import Google Font - Poppins */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
+{% block title %} About Us {% endblock title %}
 
+{% block stylesheet %}
+
+<style>
+    /* Import Google Font - Poppins */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    
+    * {
+        margin: 0;
+        padding: 0;
+        
+    }
+    
+    body {
+        background-color: rgb(199, 199, 199);
+    }
+    
+    .section {
+        
+        text-align: center;
+        margin-top: 100px;
+        animation: fadeIn 2s forwards;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-2em);
         }
-
-        body {
-            background-color: rgb(199, 199, 199);
+        
+        to {
+            opacity: 1;
+            transformY: translateY(0);
         }
-
-        .section {
-
-            text-align: center;
-            margin-top: 100px;
-            animation: fadeIn 2s forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-2em);
-            }
-
-            to {
-                opacity: 1;
-                transformY: translateY(0);
-            }
-        }
-
-        .section h1 {
-
-            font-family: monospace;
-        }
-
-        .app {
-            background-color: rgb(18, 27, 146);
-
+    }
+    
+    .section h1 {
+        
+        font-family: monospace;
+    }
+    
+    .app {
+        background-color: rgb(18, 27, 146);
+        
             font-family: fantasy;
             color: rgb(255, 255, 255);
-
+            
         }
-
+        
         .para {
             background-color: #ffffff;
             color: #000000;
@@ -72,71 +66,57 @@
             text-decoration: none;
             border-radius: 5px;
         }
-
+        
         .btn:hover {
             background-color: #0056b3;
             color: #fff;
         }
-
+        
         footer {
             background-color: #0e3d9b;
             color: #fff;
             text-align: center;
-          height: 42px;
-          justify-content: center;
-          
+            height: 42px;
+            justify-content: center;
+            
         }
-    </style>
-</head>
-
-<body>
-    <div class="containernav1">
-        <ul class="nav">
-            <nav class="nav1">
-                <li class="navli" id="1"><a href="index.html">Home </a></li>
-                <li class="navli" id="2"><a href="profile.html">profile</a></li>
-                <li class="navli" id="3"><a href="post.html">Post</a></li>
-                <li class="navli" id="4"><a href="login.html">Login</a></li>
-                <li class="navli" id="4"><a href="aboutus.html">About Us</a></li>
-                <li class="navli" id="logo"><a href="">Samasya</a></li>
-            </nav>
-        </ul>
-    </div>
-    </div>
-    <div class="section">
-        <div class="container">
-            <div class="content-section">
-                <div class="title">
-                    <h1>About Us</h1>
+        </style>
+    {% endblock stylesheet %}
+    
+    {% block content %}
+<div class="section">
+    <div class="container">
+        <div class="content-section">
+            <div class="title">
+                <h1>About Us</h1>
                 </div>
                 <div class="content">
                     <h3 class="app"><span class="app">
-                            <marquee behavior="" direction="">Samasya App</marquee>
-                        </span></h3>
+                        <marquee behavior="" direction="">Samasya App</marquee>
+                    </span></h3>
                     <h4>"Solution for any problem takes time."</h4>
                     <p class="para">We the team of Samasya App has started a revolutionary journey from a Program
                         <b>(Hackathon)</b>. We figured out that the voice of
                         citizens are not reaching to the government. So we decided to build this app.</p>
-
-                    <p class="para">
-                        There is lack of commnication between the problem of citizen and the government.
-                        To reduce the gap between the government and the citizens, <b>Samasya App</b> is now here for
-                        the <b>Revolution</b>. Raise your voice to the Government through Samasya app and contribute for
-                        revolution.
-                    <p class="para">You can post the problem and also select the criteria of problem .
-                        If you and another citizen have same sort of problem you can comment in the post of same topic
-                        and up vote to that .
-                    </p>
-                    </p>
+                        
+                        <p class="para">
+                            There is lack of commnication between the problem of citizen and the government.
+                            To reduce the gap between the government and the citizens, <b>Samasya App</b> is now here for
+                            the <b>Revolution</b>. Raise your voice to the Government through Samasya app and contribute for
+                            revolution.
+                            <p class="para">You can post the problem and also select the criteria of problem .
+                                If you and another citizen have same sort of problem you can comment in the post of same topic
+                                and up vote to that .
+                            </p>
+                        </p>
+                    </div>
+                    <a href="index.html" class="btn">Explore Now</a>
                 </div>
-                <a href="index.html" class="btn">Explore Now</a>
             </div>
+
         </div>
-
-    </div>
-    <footer style="margin-top:5.9%;">
-        <p  style="margin-top:9px;"> &copy; 2024 Samasya App. All rights reserved.</p>
+        <footer style="margin-top:5.9%;">
+            <p  style="margin-top:9px;"> &copy; 2024 Samasya App. All rights reserved.</p>
     </footer>
-</body>
 
-</html>
+{% endblock content %}

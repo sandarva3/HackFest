@@ -24,14 +24,22 @@
             
             <nav class="nav">
           
-            <ul class="nav"> 
-                <li class="navli" id="2"><a href="{% url 'profile' %}">profile</a></li>
+            <ul class="nav" id="nav3">
+                {% if request.user.is_authenticated %}
+                <li class="navli" id="2"><a href="{% url 'profile' %}">{{user.username}}</a></li>
+                {% else %}
+                <li class="navli" id="2"><a href="{% url 'profile' %}">Profile</a></li>
+                {% endif %}
                 <li class="navli" id="3"><a href="{% url 'post' %}">Post</a></li>
+                {% if request.user.is_authenticated %}
+                <li class="navli" id="4"><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
                 <li class="navli" id="4"><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
                 <li class="navli" id="5"><a href="{% url 'about' %}">About Us</a></li>
                 
+            </ul>
             </nav>
-        </ul>
     </div>
     </div>
     <div class="container">
