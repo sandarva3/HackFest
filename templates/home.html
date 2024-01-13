@@ -1,79 +1,66 @@
-{% extends "base.html" %}
-{% load static %}
-
-{% block stylesheet %}
-<link rel="stylesheet" href="{% static 'css/post.css' %}">
-{% endblock stylesheet %}
-
-
-{% block javascript %}
+{% extends "base.html" %} {% load static %} {% block stylesheet %}
+<link rel="stylesheet" href="{% static 'css/post.css' %}" />
+{% endblock stylesheet %} {% block javascript %}
 <script src="{% static 'js/script.js' %}"></script>
-{% endblock javascript %}
+{% endblock javascript %} {% block content %}
 
-{% block content %}
+<p style="display: none" id="postId3">{{post.id}}</p>
 
-
-<p style="display:none;" id="postId3">{{post.id}}</p>
-    {% for post in posts %}
-
-    <div class="pc">
-        <div class="post-box">
-            <div class="profile">
-
-
-                <img src="https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg"
-                    alt="Profile Image">
-
-                <div style="color: rgb(229, 229, 229);" class="username">{{post.user.username}}</div>
-            </div>
-            <div class="user-details">
-
-                <div class="category">Category: {{post.category}}</div>
-            </div>
-            <div class="post-content">
-                <p>{{post.text}}</p>
-            </div>
-            <button class="upvote-btn">Upvote &#8593; {{post.upvotes}}</button>
-            <input type="text" style="margin:4px" class="comment-input" id="cmtt{{post.id}}" placeholder="Add a comment..."
-                onclick="clicked()">
-        </div>
-        <div class="comment-section" style="height:min-content; padding:0px; width: auto;" id="cmt" hidden>
-            <div class="comment-header">
-                Comments<button class="btnn"
-                style="height :auto; color:rgb(255, 255, 255); padding:7px; width: auto;" onclick="back()">
-                
-                
-                <button class="btnn"
-                style="height :auto; cursor: pointer; color:rgb(255, 255, 255); padding:2px; width: min-content;"
-                onclick="back()">
-                Back
-            </button>
-        </div>
-        {% for comment in comments %}
+{% for post in posts %}
+<div class="pc">
+  <div class="post-box">
+    <div class="profile">
+      <img
+        src="https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg"
+        alt="Profile Image"
+      />
+      <div style="color: rgb(229, 229, 229)" class="username">
+        {{post.user.username}}
+      </div>
+    </div>
+    <div class="user-details">
+      <div class="category">Category: {{post.category}}</div>
+    </div>
+    <div class="post-content">
+      <p>{{post.text}}</p>
+    </div>
+    <button class="upvote-btn">Upvote &#8593; {{post.upvotes}}</button>
+    {% comment %} <input
+      type="text"
+      style="margin: 4px"
+      class="comment-input"
+      id="cmtt"
+      placeholder="Add a comment..."
+      onclick="clicked()"
+    /> {% endcomment %}
+    <form method="post" action="{% url 'comment' %}">
         {% csrf_token %}
-        <div class="comments">
-            <div class="comment-box">
-                <div class="comment-username">{{comment.user.username}}</div>
-                <div class="comment-content">{{comment.text}}</div>
-                <button class="upvote-btn">Upvote &#8593; {{comment.upvotes}}</button>
-            </div>
-            {% empty %}
-            <p>No comments to display</p>
-            {% endfor %}
-
-            <form method="post" action="{% url 'comment' %}">
-                {% csrf_token %}
-            <div class="new-comment">
-                <input type="text" style="margin:4px" name="text" class="comment-input" id="cmt{{post.id}}" placeholder="Add a comment..."
-                onclick="clicked()">
-                <input type="hidden" name="post_id" value="{{ post.id }}">
-                <button type="submit" class="submit-btn">Submit</button>
-            </div>
-            </form>
-
+        <div class="new-comment">
+          <input
+            type="text"
+            style="margin: 4px"
+            name="text"
+            class="comment-input"
+            id="cmt{{post.id}}"
+            placeholder="Add a comment..."
+            onclick="clicked()"
+          />
+          <input type="hidden" name="post_id" value="{{ post.id }}" />
+          <button type="submit" class="submit-btn">Submit</button>
         </div>
-
-        {% empty %}
-        <p>No Posts to Display</p>
-        {% endfor %}
-    {% endblock content %}
+      </form>
+  </div>
+  <div class="comments">
+        {% for comment in comments %} {% csrf_token %}
+      <div class="comment-box">
+        <div class="comment-username">{{comment.user.username}}</div>
+        <div class="comment-content">{{comment.text}}</div>
+        <button class="upvote-btn">Upvote &#8593; {{comment.upvotes}}</button>
+      </div>
+      {% empty %}
+      <p>No comments to display</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %} {% endblock content %}

@@ -62,7 +62,7 @@
 
   
   .container {
-    width: 500px;
+    width: 70%;
     height: 70%;
     margin-top:12px;
     overflow: hidden;
@@ -113,12 +113,12 @@
 }*/
 
 .post-box {
-    max-width: 400px;
+    width: 500px;
+    height: auto;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
-    margin: 20px;
     justify-content: center;
 }
 
@@ -208,14 +208,14 @@ justify-content: center;
   align-items: center;
 }
 .comment-section {
-  max-width: 400px;
+  width: 50%;
   justify-content: center;
   width: 100%;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   overflow: hidden;
-  margin:22px;
+  margin-top:0px;
 }
 
 .comment-header {
