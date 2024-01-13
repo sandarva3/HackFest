@@ -1,5 +1,5 @@
 from django import forms
-from .models import Customer, Post
+from .models import Customer, Post, Comment
 from django.contrib.auth.forms import UserCreationForm, User
 
 class CustomUserCreationForm(UserCreationForm):
@@ -60,4 +60,12 @@ class PostForm(forms.ModelForm):
             'text': forms.Textarea(attrs={'placeholder': 'Write down Problem', 'class':'post-content', 'spellcheck':'false'}),
             'level': forms.Select(attrs={'class': 'level'}),
             'category': forms.Select(attrs={'class':'category'}),
+        }
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text']
+        widgets = {
+            'text': forms.Textarea(attrs={'placeholder': 'Enter your comment here', 'rows': 4, 'cols': 40}),
         }

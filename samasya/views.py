@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .forms import CustomUserCreationForm, PostForm
+from .forms import CustomUserCreationForm, PostForm, CommentForm
 from django.contrib import auth
 from django.contrib.auth import login, logout
 from .models import Customer, User, Post, Comment
@@ -10,10 +10,23 @@ from django.contrib.auth.decorators import login_required
 def home_view(request):
     if request.user.is_authenticated:
         posts = Post.objects.all().order_by('-created_at')
+    
+        comment_form = CommentForm()
+        if request.method == 'POST':
+            comment_form = CommentForm(request.POST)
+            if comment_form.is_valid():
+                comment = comment_form.save(commit=False)
+                comment.user = request.user
+                post_id = request.POST.get('post_id')
+                comment.post = Post.objects.get(id=post_id)
+                comment.save()
+                return redirect('home')
+
         comments = Comment.objects.all().order_by('-created_at')
         context = {
             'posts':posts,
             'comments':comments,
+            'comment_form':comment_form,
             }
         return render(request, 'home.html', context)
     
@@ -80,6 +93,18 @@ def post_view(request):
 
     return render(request, 'post.html', {'form': form})
 
+
+def comment_view(request):
+    if request.method == "POST":
+        post_id = request.POST.get('post_id')
+        text = request.POST.get('text')
+        post = get_object_or_404(Post, id=post_id)
+
+        Comment.objects.create(user=request.user, post=post, text=text)
+
+        return redirect('home')
+    
+    return redirect('home')
 
 def profile_view(request):
     return render(request, 'profile.html')
