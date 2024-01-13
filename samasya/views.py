@@ -94,6 +94,16 @@ def post_view(request):
     return render(request, 'post.html', {'form': form})
 
 
+def upvote_view(request):
+    if request.method == 'POST':
+        post_id = request.POST.get('post_id')
+        post = get_object_or_404(Post, id=post_id)
+        post.upvotes += 1
+        post.save()
+        return redirect('home')
+    return redirect('home')
+
+
 def comment_view(request):
     if request.method == "POST":
         post_id = request.POST.get('post_id')
