@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 def home_view(request):
     if request.user.is_authenticated:
-        posts = Post.objects.all().order_by('-created_at')
+        posts = Post.objects.all().order_by('-upvotes',)
     
         comment_form = CommentForm()
         if request.method == 'POST':
@@ -92,8 +92,6 @@ def post_view(request):
             form = PostForm()
 
     return render(request, 'post.html', {'form': form})
-
-
 def upvote_view(request):
     if request.method == 'POST':
         post_id = request.POST.get('post_id')
