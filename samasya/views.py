@@ -107,4 +107,7 @@ def comment_view(request):
     return redirect('home')
 
 def profile_view(request):
+    if request.user.is_authenticated:
+        user_posts = Post.objects.filter(user=request.user).order_by('-created_at')
+        return render(request, 'profile.html', {'posts':user_posts})
     return render(request, 'profile.html')

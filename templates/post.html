@@ -6,7 +6,7 @@
 {% endblock stylesheet %}
 
 {% block content %}
-
+{% if request.user.is_authenticated %}
         <div class="container">
           
           <header style="text-align: center; font-weight: bold; font-size: 22px; margin:5px; margin-top: 12px;">Create
@@ -22,5 +22,10 @@
             
           </div>
         </div>
+{% else %}
+<h2>
+  Please login to Create a post
+</h2>
+{% endif %}
 
 {% endblock content %}

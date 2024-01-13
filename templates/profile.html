@@ -47,11 +47,11 @@ Profile
       
       .post {
         border-bottom: 1px solid #ddd;
-        padding: 10px 0;
+        padding: 0px;
       }
       
       .post p {
-        margin: 0;
+        margin: 0px;
       }
       
       @media only screen and (max-width: 600px) {
@@ -63,14 +63,14 @@ Profile
       .btn {
         display: inline-block;
         padding: 10px 20px;
-        background-color: #007BFF;
+        background-color: #0056b3;
         color: #fff;
         text-decoration: none;
         border-radius: 5px;
       }
       
       .btn:hover {
-        background-color: #0056b3;
+        background-color: #007BFF;
         color: #fff;
       }
       
@@ -90,10 +90,20 @@ Profile
         <p>Phone Number:<span class="phonenumber"> {{user.customer.phone}}</span> </p>
           <p>Email: <span class="email">{{user.email}}</span> </p>
         </div>
-        {% else %}
-        {% endif %}
         <h2>Your Posts</h2>
-        <div><a href="post.html" class="btn">Create Post</a></div><br>
+        {% if posts %}
+          {% for post in posts %}
+            <div class="ypost" style="font-style: italic; padding-bottom: 0px; margin-bottom: 0px;">
+              - {{post.text|truncatechars:75}}...
+        </div>
+        {% endfor %}
+        <br><br>
+        <div><a href="{% url 'post' %}" class="btn">Create Post</a></div><br>
+        {% else %}
+        <p class="post" style="font-weight: bold;">You don't have any post yet!!!  
+      </p>
+        {% endif %}
+        {% else %}
         <div class="ypost">
           <span class="post" style="font-weight: bold;">You don't have any post yet!!!  
           </span>
@@ -101,6 +111,7 @@ Profile
           <br>
           <p>Please login to create a post.</p>
         </div>
+        {% endif %}
         
         
       </main>
