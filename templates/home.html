@@ -55,7 +55,7 @@
       </form>
   </div>
   <div class="comments">
-        {% for comment in comments %} {% csrf_token %}
+        {% for comment in post.comments.all %} {% csrf_token %}
       <div class="comment-box">
         <div class="comment-username">{{comment.user.username}}</div>
         <div class="comment-content">{{comment.text}}</div>

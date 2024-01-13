@@ -90,8 +90,10 @@ def post_view(request):
             return redirect('home')
         else:
             form = PostForm()
-
+            
     return render(request, 'post.html', {'form': form})
+
+
 def upvote_view(request):
     if request.method == 'POST':
         post_id = request.POST.get('post_id')
