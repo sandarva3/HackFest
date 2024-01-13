@@ -7,21 +7,22 @@
 
 {% block content %}
 {% if request.user.is_authenticated %}
-        <div class="container">
-          
-          <header style="text-align: center; font-weight: bold; font-size: 22px; margin:5px; margin-top: 12px;">Create
-            Post</header>
-            <hr>
-            <form method="post">
-              {% csrf_token %}
-              {{ form.as_p }}
-              <div class="button">
-                <button type="submit" class="btnn" style=" margin:12px; width:96%; color:white;">Post</button>
-              </div>
-            </form>
-            
-          </div>
-        </div>
+<div class="container">
+
+  <header style="text-align: center; font-weight: bold; font-size: 22px; margin:5px; margin-top: 12px;">Create
+    Post</header>
+  <hr>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div class="button">
+      <button type="submit" class="btnn" style=" margin:12px; width:96%; color:white;">Post</button>
+    </div>
+  </form>
+
+</div>
+</div>
 {% else %}
 <h2>
   Please login to Create a post

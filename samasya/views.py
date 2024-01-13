@@ -90,7 +90,6 @@ def post_view(request):
             return redirect('home')
         else:
             form = PostForm()
-            
     return render(request, 'post.html', {'form': form})
 
 
